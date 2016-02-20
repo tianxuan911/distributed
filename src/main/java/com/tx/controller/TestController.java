@@ -1,5 +1,6 @@
 package com.tx.controller;
 
+import com.tx.dubbo.demo.DemoService;
 import com.tx.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,13 +20,15 @@ import java.io.PrintWriter;
 public class TestController {
     @Autowired
     private  TestService testService;
+    @Autowired
+    private DemoService demoService;
     @RequestMapping("/testconf")
     public void testConfigure(@RequestParam(value="arg1" ,required=false ,defaultValue = "") String arg1,HttpServletRequest request,HttpServletResponse response) {
         PrintWriter writer = null;
 
         try {
             writer = response.getWriter();
-            writer.write(testService.getConfigure());
+            writer.write(demoService.sayHello("田旋"));
             response.setContentType("text/html,charset=utf8");
         } catch (IOException e) {
             e.printStackTrace();
