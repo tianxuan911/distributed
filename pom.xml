@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.tx</groupId>
-  <artifactId>distributed</artifactId>
+  <artifactId>distributed_provider</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>distributed Maven Webapp</name>
@@ -111,10 +111,40 @@
       <version>3.0.1</version>
       <scope>provided</scope>
     </dependency>
+
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>dubbo</artifactId>
+      <version>2.5.3</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>spring</artifactId>
+          <groupId>org.springframework</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.zookeeper</groupId>
+      <artifactId>zookeeper</artifactId>
+      <version>3.4.6</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.github.sgroschupf</groupId>
+      <artifactId>zkclient</artifactId>
+      <version>0.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.tx</groupId>
+      <artifactId>demoservice</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 
   <build>
-    <finalName>distributed</finalName>
+    <finalName>distributed_provider</finalName>
     <defaultGoal>install</defaultGoal>
     <resources>
       <resource>
